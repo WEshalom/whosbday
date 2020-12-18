@@ -15,7 +15,6 @@ public class PhoneNumber {
 
     @ManyToOne(targetEntity = Person.class, fetch = FetchType.LAZY)
     @JoinTable(name = "persons")
-    //TABLE NOT COLUMN!!!
     private Person person;
 
     public PhoneNumber(){
