@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 @Entity(name = "persons")
 public class Person {
@@ -18,7 +19,7 @@ public class Person {
     private LocalDate birthday;
 
     @OneToMany(mappedBy = "person_id") //@OneToMany(mappedBy = "persons")
-    private List<PhoneNumber> phoneNumbers;//here's bug
+    private List<PhoneNumber> phoneNumbers;
 
     public Person(){
     }
@@ -62,6 +63,19 @@ public class Person {
 
     public void setPhoneNumbers(List<PhoneNumber> phoneNumbers) {
         this.phoneNumbers = phoneNumbers;
+    }
+
+    public int HashCode(){
+        return Objects.hash(person_id, first_name, last_name, birthday);
+    }
+
+    //TODO Write these
+    public boolean equals(Person otherPerson){
+        return true;
+    }
+
+    public String toString(){
+        return this.toString();
     }
 
 }
