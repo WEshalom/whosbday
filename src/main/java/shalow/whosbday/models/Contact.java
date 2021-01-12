@@ -1,8 +1,5 @@
 package shalow.whosbday.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.jmx.export.annotation.ManagedAttribute;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -11,6 +8,8 @@ import java.util.List;
 public class Contact{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long contact_id;
+
     private String first_name;
     private String last_name;
     private String home_phone;
@@ -25,7 +24,7 @@ public class Contact{
             joinColumns = @JoinColumn (name = "contact_id"),
             inverseJoinColumns = @JoinColumn (name = "birthday_id")
         )
-    private List<Birthday> remindOnBirthdaysList;
+    private List<Birthday> bdaysToRemindOn;
 
 
     public Contact(){
@@ -87,11 +86,11 @@ public class Contact{
         this.address = address;
     }
 
-    public List<Birthday> getRemindOnBirthdaysList() {
-        return remindOnBirthdaysList;
+    public List<Birthday> getBdaysToRemindOn() {
+        return bdaysToRemindOn;
     }
 
-    public void setRemindOnBirthdaysList(List<Birthday> remindOnBirthdaysList) {
-        this.remindOnBirthdaysList = remindOnBirthdaysList;
+    public void setBdaysToRemindOn(List<Birthday> remindOnBirthdaysList) {
+        this.bdaysToRemindOn = remindOnBirthdaysList;
     }
 }

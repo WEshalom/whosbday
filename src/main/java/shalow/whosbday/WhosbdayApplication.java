@@ -12,8 +12,6 @@ public class WhosbdayApplication {
 		SpringApplication.run(WhosbdayApplication.class, args);
 	}
 
-
-
 }
 
 

@@ -1,7 +1,5 @@
 package shalow.whosbday.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -10,14 +8,16 @@ import java.util.List;
 public class Birthday{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long birthday_id;
+
     private String first_name;
     private String last_name;
     private LocalDate birthday;
     //although in db it's varchar
     private int age;
 
-    @ManyToMany(mappedBy = "birthdays")
-    private List<Contact> remindContacts;
+    @ManyToMany(mappedBy = "bdaysToRemindOn")
+    private List<Contact> contactsToRemind;
 
     public Birthday(){
     }
@@ -54,12 +54,12 @@ public class Birthday{
         this.age = age;
     }
 
-    public List<Contact> getRemindContacts() {
-        return remindContacts;
+    public List<Contact> getContactsToRemind() {
+        return contactsToRemind;
     }
 
-    public void setRemindContacts(List<Contact> remindContacts) {
-        this.remindContacts = remindContacts;
+    public void setContactsToRemind(List<Contact> remindContacts) {
+        this.contactsToRemind = remindContacts;
     }
 
 }
