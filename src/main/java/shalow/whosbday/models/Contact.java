@@ -1,5 +1,7 @@
 package shalow.whosbday.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -8,12 +10,12 @@ import java.util.List;
 public class Contact{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long contact_id;
+    private Long contactId;
 
-    private String first_name;
-    private String last_name;
-    private String home_phone;
-    private String cell_phone;
+    private String firstName;
+    private String lastName;
+    private String homePhone;
+    private String cellPhone;
     private String email;
     private LocalDate birthday;
     private String address;
@@ -30,36 +32,44 @@ public class Contact{
     public Contact(){
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public Long getContactId() {
+        return contactId;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setContactId(Long contactId) {
+        this.contactId = contactId;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getHome_phone() {
-        return home_phone;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setHome_phone(String home_phone) {
-        this.home_phone = home_phone;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getCell_phone() {
-        return cell_phone;
+    public String getHomePhone() {
+        return homePhone;
     }
 
-    public void setCell_phone(String cell_phone) {
-        this.cell_phone = cell_phone;
+    public void setHomePhone(String homePhone) {
+        this.homePhone = homePhone;
+    }
+
+    public String getCellPhone() {
+        return cellPhone;
+    }
+
+    public void setCellPhone(String cellPhone) {
+        this.cellPhone = cellPhone;
     }
 
     public String getEmail() {
